@@ -73,7 +73,7 @@ const context = require.context('./pages', true, /\.js$/);
 
 Banana.load(createComponents(context, vue));
 
-Banana.start();
+Banana.mount();
 ```
 
 React is also supported:
