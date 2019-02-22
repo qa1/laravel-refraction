@@ -191,7 +191,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 
 ## Credits
 
-- [Sebastian De Deyne](https://github.com/Sebastian De Deyne)
+- [Sebastian De Deyne](https://github.com/sebastiandedeyne)
 - [All Contributors](../../contributors)
 
 ## Support us
