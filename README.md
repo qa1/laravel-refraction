@@ -1,9 +1,9 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-banana.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-banana)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-banana/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-banana)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-banana.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-banana)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-banana.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-banana)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-refraction.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-refraction)
+[![Build Status](https://img.shields.io/travis/spatie/laravel-refraction/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-refraction)
+[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-refraction.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-refraction)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-refraction.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-refraction)
 
 Mount JavaScript components as full page documents in Blade views.
 
@@ -19,7 +19,7 @@ class UsersController
     public function index()
     {
         $users = User::all();
-        
+
         return mount('users', [
             $users => 'users',
         ]);
@@ -59,35 +59,35 @@ return mount('admin.dashboard', $data);
 You can install the package via composer:
 
 ```bash
-composer require spatie/laravel-banana
+composer require spatie/laravel-refraction
 ```
 
 Next, you'll need to set up the package in your scripts. Assuming you're using Webpack (or Laravel Mix), this will register all Vue components in the specified directory.
 
 ```js
-import Banana from 'laravel-banana';
-import vue from 'laravel-banana/vue';
-import createComponents from 'laravel-banana/webpack';
+import refraction from 'laravel-refraction';
+import vue from 'laravel-refraction/vue';
+import createComponents from 'laravel-refraction/webpack';
 
 const context = require.context('./pages', true, /\.js$/);
 
-Banana.load(createComponents(context, vue));
+refraction.load(createComponents(context, vue));
 
-Banana.mount();
+refraction.mount();
 ```
 
 React is also supported:
 
 ```js
-import Banana from 'laravel-banana';
-import react from 'laravel-banana/react';
-import createComponents from 'laravel-banana/webpack';
+import refraction from 'laravel-refraction';
+import react from 'laravel-refraction/react';
+import createComponents from 'laravel-refraction/webpack';
 
 const context = require.context('./pages', true, /\.js$/);
 
-Banana.load(createComponents(context, react));
+refraction.load(createComponents(context, react));
 
-Banana.mount();
+refraction.mount();
 ```
 
 ## Usage
@@ -101,11 +101,11 @@ return mount('admin.dashboard', ['stats' => $stats]);
 ```
 
 ```php
-return mount('admin.dashboard')->with('stats, $stats);
+return mount('admin.dashboard')->with(['stats' => $stats]);
 ```
 
 ```php
-return mount('admin.dashboard')->with(['stats, $stats]);
+return mount('admin.dashboard')->with('stats', $stats);
 ```
 
 The component will be mounted in a configured layout view. The default layout can be set in config.
@@ -145,10 +145,10 @@ The above expects a `layouts.app` Blade view to exist that echoes a `$slot` vari
 
 ### View composers
 
-Banana is compatible with your application's existing view composers. All data will be passed as props to the created component.
+refraction is compatible with your application's existing view composers. All data will be passed as props to the created component.
 
 ```php
-Banana::composer('profile.*', function ($view) {
+refraction::composer('profile.*', function ($view) {
     $view->with('user', Auth::user());
 });
 ```
@@ -159,7 +159,7 @@ If you're building a Turbolinks application, you'll need to mount the components
 
 ```js
 window.addEventListener('turbolinks:load', () => {
-    Banana.mount();
+    refraction.mount();
 });
 ```
 
@@ -198,7 +198,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
+Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie).
 All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## License
