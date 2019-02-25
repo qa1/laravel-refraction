@@ -39,6 +39,6 @@ class Refraction implements Htmlable, Responsable
 
     public function toHtml(): string
     {
-        return "<div data-component=\"{$this->component}\" data-props=\"{$this->propsJson()}\">";
+        return "<div data-component=\"{$this->component}\" data-props=\"{$this->propsJson()}\"></div>";
     }
 }
